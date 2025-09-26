@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Osobní webová stránka Michala Mikulenky, webového vývojáře.">
+    <meta name="keywords" content="Michal Mikulenka, web developer, personal webpage, portfolio">
+    <meta name="author" content="Michal Mikulenka">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>WebDev</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="#hero">
+                    <img src="/assets/pictures/logo/logo.webp" alt="Logo">
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Proč já?</a></li>
+                <li><a href="#skills">Tech stack</a></li>
+                <li><a href="#projects">Projekty</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+    <div class="hero-backgrounds">
+
+    </div>
+
+    <div class="hero-text-container">
+        <div class="hero-text">
+            <h1>Tvořím moderní weby, které prodávají a inspirují</h1>
+            <p>Weby, které kombinují design a funkčnost do rychlých a efektivních řešení.</p>
+            <a href="#contact" class="cta-button">Domluvte si spolupráci</a>
+            <small>Ozvu se vám do 24 hodin</small>
+        </div>
+    </div>
+    </section>
+
+    <section class="about" id="about">
+    <h2>Proč já?</h2>
+    <p>
+        Jsem Michal, web developer a tvůrce moderních webových řešení. Mé weby nejen vypadají skvěle, 
+        ale především fungují rychle, efektivně a s jasným cílem. Pomáhám podnikatelům a tvůrcům 
+        proměnit jejich nápady v živé, funkční digitální produkty, které prodávají a inspirují.
+    </p>
+
+    <ul class="about-list">
+        <li><i class="fa-solid fa-check"></i> <strong>Jednoduchost a funkčnost</strong> – každý projekt má jasný smysl a snadné ovládání.</li>
+        <li><i class="fa-solid fa-code"></i> <strong>Čistý, udržitelný kód</strong> – snadná údržba a rozšiřitelnost.</li>
+        <li><i class="fa-solid fa-handshake"></i> <strong>Spolehlivá komunikace</strong> – otevřený a jasný dialog po celou dobu spolupráce.</li>
+        <li><i class="fa-solid fa-star"></i> <strong>Osobní přístup</strong> – každý projekt je unikátní a šitý na míru potřebám klienta.</li>
+    </ul>
+
+    <a href="#contact" class="btn-create">Pojďme tvořit</a>
+    </section>
+
+
+    <section class="skills" id="skills">
+        <h2>Tech stack</h2>
+        <ul class="skills-list">
+            <li><i class="fa-brands fa-html5"></i> HTML</li>
+            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+            <li><i class="fa-brands fa-js"></i> JavaScript</li>
+            <li><i class="fa-brands fa-react"></i> React</li>
+            <li><i class="fa-brands fa-python"></i> Python</li>
+            <li><i class="fa-brands fa-git-alt"></i> Git</li>
+            <li><i class="fa-brands fa-github"></i> GitHub</li>
+            <li><i class="fa-solid fa-database"></i> SQL</li>
+        </ul>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Moje projekty</h2>
+        <p class="projects-intro">
+            Ukázka mých prací – od osobních webů přes firemní prezentace až po webové aplikace. 
+            Každý projekt je postavený na moderních technologiích a individuálním přístupu.
+        </p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Interior Designer</h3>
+                <p>Osobní portfolio interiérové designérky s důrazem na estetiku a čistý minimalismus.</p>
+                <a href="https://denisamrazkova8.wixsite.com/interier" class="project-card-btn" target="_blank" rel="noopener noreferrer">Denisa Mrázková</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Projektant</h3>
+                <p>Prezentace pro stavebního projektanta, zaměřená na technickou odbornost a přehlednost.</p>
+                <a href="http://statika-kovarik.cz/" class="project-card-btn" target="_blank" rel="noopener noreferrer">Ing. Kovařík</a>
+            </div>
+
+            <div class="project-card">
+                <h3>WebApp</h3>
+                <p>Webová aplikace pro architekty a stavební dozory. 
+                Ve vývoji – bude obsahovat chytré nástroje pro správu projektů.</p>
+                <a href="#" class="project-card-btn">Ve vývoji</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <h2>Neboj se mi ozvat</h2>
+            <p>Společně najdeme adekvátní řešení i pro tebe..</p>
+        </div>
+
+        <form>
+            <label for="name">Jméno:</label>
+            <input type="text" id="name" name="name" placeholder="Michal Mikulenka" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Mikulenka@gmail.com" required>
+
+            <label for="message">Zpráva:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Ahoj Michale, chci s Tebou ..." required></textarea>
+            <div>
+                <button class="btn-submit" type="submit">Odeslat!</button>
+
+                <a href="#hero" class="back-to-top">Zpět nahoru ⬆️</a>
+            </div>
+        </form>
+    </section>
+
+    <footer id="footer">
+        <p>&copy; 2025 Michal Mikulenka. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/michal-mikulenka-4b8939330/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+                <span class="sr-only">LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/michal.mikulenka.5" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span class="sr-only">Facebook</span>
+            </a>
+            <a href="https://github.com/Pilsenhorn" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <span class="sr-only">GitHub</span>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
