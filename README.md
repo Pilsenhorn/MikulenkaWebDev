@@ -1,4 +1,4 @@
-# Michal Mikulenka Web Vizitka
+# Michal Mikulenka Web Page
 
 ## Popis / Description
 
