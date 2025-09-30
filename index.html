@@ -8,6 +8,7 @@
     <meta name="author" content="Michal Mikulenka">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <title>WebDev</title>
 </head>
 
@@ -20,13 +21,18 @@
                 </a>
             </div>
         </div>
+
+        
+
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#about">Proč já?</a></li>
                 <li><a href="#skills">Tech stack</a></li>
                 <li><a href="#projects">Projekty</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
+
+            <button class="menu-toggle">☰</button> <!-- HAMBURGER -->
         </nav>
     </header>
 
@@ -68,7 +74,7 @@
         <h2>Tech stack</h2>
         <ul class="skills-list">
             <li><i class="fa-brands fa-html5"></i> HTML</li>
-            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+            <li><i class="fa-brands fa-css3"></i> CSS</li>
             <li><i class="fa-brands fa-js"></i> JavaScript</li>
             <li><i class="fa-brands fa-react"></i> React</li>
             <li><i class="fa-brands fa-python"></i> Python</li>
@@ -104,6 +110,12 @@
                 Ve vývoji – bude obsahovat chytré nástroje pro správu projektů.</p>
                 <a href="#" class="project-card-btn">Ve vývoji</a>
             </div>
+
+            <div class="project-card">
+                <h3>The Griffoons</h3>
+                <p>Aplikace pro všechny milovníky pejsků.</p>
+                <a href="#" class="project-card-btn">Ve vývoji</a>
+            </div>
         </div>
     </section>
 
@@ -125,8 +137,6 @@
             <textarea id="message" name="message" rows="4" placeholder="Ahoj Michale, chci s Tebou ..." required></textarea>
             <div>
                 <button class="btn-submit" type="submit">Odeslat!</button>
-
-                <a href="#hero" class="back-to-top">Zpět nahoru ⬆️</a>
             </div>
         </form>
     </section>
@@ -138,15 +148,22 @@
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="sr-only">LinkedIn</span>
             </a>
-            <a href="https://www.facebook.com/michal.mikulenka.5" target="_blank" rel="noopener noreferrer">
+        <!-- <a href="https://www.facebook.com/michal.mikulenka.5" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-facebook"></i>
                 <span class="sr-only">Facebook</span>
+            </a> -->
+            
+            <a href="https://www.instagram.com/michal_mikulenka/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+                <span class="sr-only">Instagram</span>
             </a>
+
             <a href="https://github.com/Pilsenhorn" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github"></i>
                 <span class="sr-only">GitHub</span>
             </a>
         </div>
     </footer>
+    <script src="/assets/script.js"></script>
 </body>
 </html>
