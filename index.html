@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Osobní webová stránka Michala Mikulenky, webového vývojáře.">
-    <meta name="keywords" content="Michal Mikulenka, web developer, personal webpage, portfolio, project, web development">
+    <meta name="description" content="Michal Mikulenka – web developer a tvůrce moderních webů, které prodávají a inspirují.">
     <meta name="author" content="Michal Mikulenka">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <title>Mikulenka WebDev</title>
+
+    <meta property="og:title" content="Michal Mikulenka | Web Developer">
+    <meta property="og:description" content="Moderní weby, které prodávají a inspirují.">
+    <meta property="og:image" content="URL_k_obrázku">
+    <meta property="og:url" content="https://tvoje-domena.cz">
+    <meta name="twitter:card" content="summary_large_image">
+
+
+
+
+    <title>Mikulenka WebDev | Osobní portfolio a webové projekty</title>
 </head>
 
 <body>
@@ -17,12 +25,10 @@
         <div class="logo-container">
             <div class="logo">
                 <a href="#hero">
-                    <img src="/assets/pictures/logo/logo.webp" alt="Logo">
+                    <img src="/assets/pictures/logo/logo.webp" alt="Logo loading='lazy'">
                 </a>
             </div>
         </div>
-
-        
 
         <nav>
             <ul class="nav-links">
@@ -95,13 +101,13 @@
             <div class="project-card">
                 <h3>Interior Designer</h3>
                 <p>Osobní portfolio interiérové designérky s důrazem na estetiku a čistý minimalismus.</p>
-                <a href="https://denisamrazkova8.wixsite.com/interier" class="project-card-btn" target="_blank" rel="noopener noreferrer">Denisa Mrázková</a>
+                <a href="https://denisamrazkova8.wixsite.com/interier" class="project-card-btn" target="_blank" rel="noopener noreferrer" alt="Portfolio interiérové designérky - homepage">Denisa Mrázková</a>
             </div>
 
             <div class="project-card">
                 <h3>Projektant</h3>
                 <p>Prezentace pro stavebního projektanta, zaměřená na technickou odbornost a přehlednost.</p>
-                <a href="http://statika-kovarik.cz/" class="project-card-btn" target="_blank" rel="noopener noreferrer">Ing. Kovařík</a>
+                <a href="http://statika-kovarik.cz/" class="project-card-btn" target="_blank" rel="noopener noreferrer" alt="Portfolio statického inženýra">Ing. Kovařík</a>
             </div>
 
             <div class="project-card">
@@ -128,13 +134,13 @@
 
         <form action="" method="post">
             <label for="name">Jméno:</label>
-            <input type="text" id="name" name="name" placeholder="Michal Mikulenka" required>
+            <input type="text" id="name" name="name" placeholder="Michal Mikulenka" required autocomplete="name" aria-label="Jméno">
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="Mikulenka@gmail.com" required>
+            <input type="email" id="email" name="email" placeholder="Mikulenka@gmail.com" required autocomplete="email" aria-label="E-mail">
 
             <label for="message">Zpráva:</label>
-            <textarea id="message" name="message" rows="4" placeholder="Ahoj Michale, chci s Tebou ..." required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Ahoj Michale, chci s Tebou ..." required autocomplete="message" aria-label="Zpráva"></textarea>
             <div>
                 <button class="btn-submit" type="submit">Odeslat!</button>
             </div>

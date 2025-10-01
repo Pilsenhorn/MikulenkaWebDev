@@ -8,29 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroHeight = hero.offsetHeight;
 
-  // funkce pro změnu stylu podle pozice
   function updateHeader() {
     if (window.scrollY < heroHeight - 50) {
       nav.classList.add("nav-light");
       nav.classList.remove("nav-dark");
 
-      // hamburger bílý
-      menuToggle.style.color = "white";
+      menuToggle.classList.add("hamburger-light");
+      menuToggle.classList.remove("hamburger-dark");
     } else {
       nav.classList.add("nav-dark");
       nav.classList.remove("nav-light");
 
-      // hamburger primary
-      menuToggle.style.color = "var(--primary-color)";
+      menuToggle.classList.add("hamburger-dark");
+      menuToggle.classList.remove("hamburger-light");
     }
   }
 
-  // spustí se na začátku i při scrollu
   updateHeader();
   window.addEventListener("scroll", updateHeader);
 
-  // hamburger toggle menu
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
 });
+
+
