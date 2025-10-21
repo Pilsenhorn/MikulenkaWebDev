@@ -36,7 +36,7 @@ def send_message(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # nebo ["https://tvuj-vercel-projekt.vercel.app"]
+    allow_origins=["https://mikulenka-web-dev.vercel.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
