@@ -38,7 +38,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   try {
-    const res = await fetch("https://tvuj-projekt.up.railway.app/send", {
+    const res = await fetch("https://mikulenkawebdev.onrender.com/send", {
       method: "POST",
       body: data
     });
