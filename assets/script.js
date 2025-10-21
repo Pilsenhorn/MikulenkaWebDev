@@ -30,23 +30,41 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
-});
 
+  // Debug: ověříme, že DOMContentLoaded proběhl
+  console.log("DOM fully loaded");
+});
 
 const form = document.querySelector("form");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  try {
-    const res = await fetch("https://mikulenkawebdev.onrender.com/send", {
-      method: "POST",
-      body: data
-    });
-    if (res.ok) alert("Zpráva odeslána!");
-    else alert("Chyba při odesílání.");
-    form.reset();
-  } catch (err) {
-    alert("Chyba při odesílání.");
-    console.error(err);
-  }
-});
+if (!form) {
+  console.error("Form not found! Check your selector.");
+} else {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    console.log("Form submit clicked!");
+
+    const data = new FormData(form);
+    console.log("Form data:", Object.fromEntries(data.entries()));
+
+    try {
+      const res = await fetch("https://mikulenkawebdev.onrender.com/send", {
+        method: "POST",
+        body: data
+      });
+
+      console.log("Fetch response status:", res.status);
+
+      if (res.ok) {
+        alert("Zpráva odeslána!");
+        form.reset();
+      } else {
+        const text = await res.text();
+        console.error("Fetch error response:", text);
+        alert("Chyba při odesílání: " + res.status);
+      }
+    } catch (err) {
+      console.error("Fetch failed:", err);
+      alert("Chyba při odesílání. Zkontrolujte konzoli.");
+    }
+  });
+}
