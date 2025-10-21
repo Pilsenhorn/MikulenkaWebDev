@@ -2,6 +2,8 @@ import os
 import smtplib
 from email.message import EmailMessage
 from fastapi import FastAPI, Form
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
@@ -27,3 +29,11 @@ def send_message(
         smtp.send_message(msg)
 
     return {"status": "sent"}
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # nebo ["https://tvuj-vercel-projekt.vercel.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

@@ -33,3 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const form = document.querySelector("form");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  try {
+    const res = await fetch("https://tvuj-projekt.up.railway.app/send", {
+      method: "POST",
+      body: data
+    });
+    if (res.ok) alert("Zpráva odeslána!");
+    else alert("Chyba při odesílání.");
+    form.reset();
+  } catch (err) {
+    alert("Chyba při odesílání.");
+    console.error(err);
+  }
+});
