@@ -10,6 +10,10 @@ app = FastAPI()
 SMTP_EMAIL = os.environ.get("SMTP_EMAIL")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD")
 
+@app.get("/")
+def rood():
+    return {"message": "Server is running"}
+
 @app.post("/send")
 def send_message(
     name: str = Form(...),
