@@ -291,7 +291,7 @@ h2 {
     border-radius: 25px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    background: linear-gradient(180deg, var(--primary-color), #ff3830);
+    background: linear-gradient(90deg, var(--primary-color), #810905);
     color: var(--white-text);
     border: none;
     font: inherit;
