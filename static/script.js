@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("active");
   });
 
-  // Debug: ověříme, že DOMContentLoaded proběhl
   console.log("DOM fully loaded");
 });
 
+// ===== FORMULÁŘ ODESÍLÁNÍ =====
 const form = document.querySelector("form");
 if (!form) {
   console.error("Form not found! Check your selector.");
@@ -47,7 +47,8 @@ if (!form) {
     console.log("Form data:", Object.fromEntries(data.entries()));
 
     try {
-      const res = await fetch("https://mikulenkawebdev.onrender.com/send", {
+     
+      const res = await fetch("/send", {
         method: "POST",
         body: data
       });

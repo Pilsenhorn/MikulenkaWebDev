@@ -2,24 +2,10 @@ from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.middleware.cors import CORSMiddleware
 import smtplib, os
 from email.message import EmailMessage
 
 app = FastAPI()
-
-# --- CORS nastavení ---
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "https://michalmikulenka.vercel.app",
-        "http://localhost:5173",
-        "http://localhost:5000"  # přidej si i další, kdyby jsi testoval lokálně
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # --- Static a Templates ---
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -37,12 +23,11 @@ async def send_message(
     email: str = Form(...),
     message: str = Form(...)
 ):
-    print(f"📩 Přijata zpráva od: {name} ({email})")  # Debug log
+    print(f"📩 Přijata zpráva od: {name} ({email})")
     
     smtp_email = os.getenv("SMTP_EMAIL")
     smtp_password = os.getenv("SMTP_PASSWORD")
     
-    # Kontrola environment variables
     if not smtp_email or not smtp_password:
         print("❌ CHYBA: SMTP_EMAIL nebo SMTP_PASSWORD nejsou nastavené!")
         return JSONResponse(
@@ -64,17 +49,17 @@ async def send_message(
             smtp.send_message(msg)
         
         print("✅ Email úspěšně odeslán!")
-        return JSONResponse({"status": "ok", "message": "Email byl úspěšně odeslán."})
+        return JSONResponse({"status": "ok", "message": "Email odeslán."})
     
     except smtplib.SMTPAuthenticationError:
-        print("❌ CHYBA: Neplatné přihlašovací údaje! Zkontroluj App Password.")
+        print("❌ CHYBA: Neplatné přihlašovací údaje!")
         return JSONResponse(
-            {"status": "error", "message": "Chyba autentizace. Zkontroluj SMTP nastavení."},
+            {"status": "error", "message": "Chyba autentizace."},
             status_code=500
         )
     except Exception as e:
-        print(f"❌ ERROR při odesílání: {e}")
+        print(f"❌ ERROR: {e}")
         return JSONResponse(
-            {"status": "error", "message": f"Chyba: {str(e)}"},
+            {"status": "error", "message": str(e)},
             status_code=500
         )
