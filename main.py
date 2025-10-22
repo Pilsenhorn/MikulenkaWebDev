@@ -12,8 +12,9 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://michalmikulenka.vercel.app",  # tvoje FE doména
-        "http://localhost:5173"  # pro lokální vývoj
+        "https://michalmikulenka.vercel.app",
+        "http://localhost:5173",
+        "http://localhost:5000"  # přidej si i další, kdyby jsi testoval lokálně
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -36,19 +37,44 @@ async def send_message(
     email: str = Form(...),
     message: str = Form(...)
 ):
+    print(f"📩 Přijata zpráva od: {name} ({email})")  # Debug log
+    
+    smtp_email = os.getenv("SMTP_EMAIL")
+    smtp_password = os.getenv("SMTP_PASSWORD")
+    
+    # Kontrola environment variables
+    if not smtp_email or not smtp_password:
+        print("❌ CHYBA: SMTP_EMAIL nebo SMTP_PASSWORD nejsou nastavené!")
+        return JSONResponse(
+            {"status": "error", "message": "Server není správně nakonfigurován."},
+            status_code=500
+        )
+    
     try:
         msg = EmailMessage()
-        msg['Subject'] = f'Nová zpráva od {name}'
-        msg['From'] = os.getenv("SMTP_EMAIL")
-        msg['To'] = os.getenv("SMTP_EMAIL")
-        msg.set_content(f"Od: {name} <{email}>\n\n{message}")
+        msg['Subject'] = f'Nová zpráva z portfolia od {name}'
+        msg['From'] = smtp_email
+        msg['To'] = smtp_email
+        msg.set_content(f"Od: {name}\nEmail: {email}\n\nZpráva:\n{message}")
 
+        print(f"📧 Odesílám email přes {smtp_email}...")
+        
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-            smtp.login(os.getenv("SMTP_EMAIL"), os.getenv("SMTP_PASSWORD"))
+            smtp.login(smtp_email, smtp_password)
             smtp.send_message(msg)
-
+        
+        print("✅ Email úspěšně odeslán!")
         return JSONResponse({"status": "ok", "message": "Email byl úspěšně odeslán."})
     
+    except smtplib.SMTPAuthenticationError:
+        print("❌ CHYBA: Neplatné přihlašovací údaje! Zkontroluj App Password.")
+        return JSONResponse(
+            {"status": "error", "message": "Chyba autentizace. Zkontroluj SMTP nastavení."},
+            status_code=500
+        )
     except Exception as e:
-        print("❌ ERROR při odesílání:", e)
-        return JSONResponse({"status": "error", "message": str(e)})
+        print(f"❌ ERROR při odesílání: {e}")
+        return JSONResponse(
+            {"status": "error", "message": f"Chyba: {str(e)}"},
+            status_code=500
+        )
