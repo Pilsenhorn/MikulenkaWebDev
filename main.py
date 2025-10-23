@@ -53,7 +53,8 @@ async def send_message(
 
         print(f"📧 Odesílám email přes Gmail SMTP ({smtp_email})...")
         
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 587) as smtp:
+            smtp.starttls()
             smtp.login(smtp_email, smtp_password)
             smtp.send_message(msg)
         
